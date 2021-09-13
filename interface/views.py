@@ -41,16 +41,32 @@ def signout(request):
 @login_required
 def dashboard(request, status):
 
+	date = timezone.now().date()
+
+	if request.user.username == 'watcher':
+		orders = Order.objects.filter(
+			status = status,
+			date__year = date.year,
+			date__month = date.month,
+			date__day = date.day
+		)
+		return render(request, 'dashboard.html', {'orders': orders})
+
 	if status == 'left':
-		date = timezone.now().date()
 		orders = Order.objects.filter(status = 'pending').exclude(
 			date__year = date.year, date__month = date.month,
 			date__day = date.day
 		)
 		return render(request, 'dashboard.html', {'orders': orders})
 
-	date = timezone.now().date()
-	orders = Order.objects.filter(status = status, date__year = date.year, date__month = date.month, date__day = date.day)
+
+	orders = Order.objects.filter(
+		status = status,
+		executor = request.user,
+		date__year = date.year,
+		date__month = date.month,
+		date__day = date.day
+	)
 	return render(request, 'dashboard.html', {'orders': orders})
 
 
@@ -58,8 +74,9 @@ def dashboard(request, status):
 @login_required
 def analysis(request):
 
-	if request.user.username != 'dev':
+	if request.user.is_superuser == False:
 		return HttpResponseRedirect(reverse('dashboard', args = ('pending',)))
+
 
 	date = timezone.now().date()
 	orders = Order.objects.filter(date__year = date.year, date__month = date.month, date__day = date.day).order_by('-date')
@@ -78,7 +95,7 @@ def analysis(request):
 @login_required
 def getAnalysisReport(request):
 
-	if request.user.username != 'dev':
+	if request.user.is_superuser == False:
 		return HttpResponseRedirect(reverse('dashboard', args = ('pending',)))
 
 	date = timezone.now().date()
@@ -130,6 +147,7 @@ def addOrderHandle(request):
 	order.date = timezone.now()
 	order.customer_name = request.POST['cname']
 	order.customer_phone = request.POST['cphone']
+	order.executor = request.user
 
 	order.save()
 

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 
 
@@ -15,6 +15,7 @@ class Order(models.Model):
 	price = models.FloatField(max_length = 30)
 	status = models.CharField(max_length = 10, default = 'pending')
 	date = models.DateTimeField()
+	executor = models.ForeignKey(User, on_delete = models.PROTECT)
 
 	def __str__(self):
 		return f'{str(self.price)} uzs - {self.customer_name} ({self.date.date()}) || {self.status}'
