@@ -7,6 +7,7 @@ urlpatterns = [
 	path('sign-in', views.signIn, name = 'signIn'),
 	path('dashboard/<str:status>', views.dashboard, name = 'dashboard'),
 	path('analysis', views.analysis, name = 'analysis'),
+	path('analysis/report', views.getAnalysisReport, name = 'analysisReport'),
 	path('order-validation/<int:id>/<str:action>', views.orderValidation, name = 'orderValidation'),
 	path('add', views.addOrder, name = 'add'),
 	path('add/handle', views.addOrderHandle, name = 'add_handle'),

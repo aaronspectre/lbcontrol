@@ -8,6 +8,7 @@ from django.utils import timezone
 from bot.models import Order
 
 import json
+from . import report
 
 def auth(request):
 	if request.user.is_anonymous:
@@ -73,6 +74,22 @@ def analysis(request):
 
 
 
+
+@login_required
+def getAnalysisReport(request):
+
+	if request.user.username != 'dev':
+		return HttpResponseRedirect(reverse('dashboard', args = ('pending',)))
+
+	date = timezone.now().date()
+	orders = Order.objects.filter(date__year = date.year, date__month = date.month, date__day = date.day).order_by('-date')
+	data = makeDailyData(orders)
+	report.updateReport(data)
+
+	return HttpResponseRedirect(reverse('analysis'))
+
+
+
 @login_required
 def orderValidation(request, id, action):
 	order = get_object_or_404(Order, id = id)
@@ -130,6 +147,9 @@ def addOrderHandle(request):
 def makeDailyData(orderSet):
 	orderAnalysis = dict()
 	orderAnalysis['orderAmount'] = orderSet.count()
+	orderAnalysis['orderRejectedAmount'] = int()
+	orderAnalysis['orderRejectedSum'] = int()
+	orderAnalysis['orderTotalSum'] = int()
 	orderAnalysis['orderSum'] = int()
 	orderAnalysis['orderBotAmount'] = int()
 	orderAnalysis['orderBotSum'] = int()
@@ -138,6 +158,7 @@ def makeDailyData(orderSet):
 	orderAnalysis['orderDone'] = int()
 
 	for order in orderSet:
+		orderAnalysis['orderTotalSum'] += order.price
 		if order.status == 'done':
 			orderAnalysis['orderSum'] += order.price
 			orderAnalysis['orderDone'] += 1
@@ -148,6 +169,10 @@ def makeDailyData(orderSet):
 			else:
 				orderAnalysis['orderCashboxSum'] += order.price
 				orderAnalysis['orderCashboxAmount'] += 1
+
+		elif order.status == 'reject':
+			orderAnalysis['orderRejectedAmount'] += 1
+			orderAnalysis['orderRejectedSum'] += order.price
 
 
 	orderAnalysis['orderProfit'] = orderAnalysis['orderSum'] / 2

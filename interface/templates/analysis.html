@@ -89,7 +89,8 @@
 					<option value="Done">Done</option>
 					<option value="Reject">Reject</option>
 				</select>
-				<select class="form-control w-25"></select>
+				<select class="form-control w-25"></select><br><br>
+				<a href="{% url 'analysisReport' %}" class="btn btn-primary">Generate Report</a>
 			</div>
 			{% if orders %}
 			{% for order in orders %}

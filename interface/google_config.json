@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "lbreportid",
+  "private_key_id": "c0c583e69a0eed922b868678cb566f7fa9832e98",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1V5T3od00ih8O\nD6RuCXdxj/85LdujDDyK0dTXJiXr58sCAGJpKp+j0oElX/JGKPixYx4FbaWLuxIp\ndi5EhmSsmCSck8k8p/TgUHiKAGcrKGCK1TIc/HtIpxMdcOkmLso65Hs/+y4U58rY\nr7EmjplitGFBkby4WlMWM4K+U01EpoHMwsYYwk/Fz+GfKpMMLYkxuP0mSiKDJ8oF\ne5pPAMt/YAoGBtyJJ6q+/OMg7FnDr6Ix6WtaLvt04oBFsuhCsMprNk1specC+PEa\n24dOtNjDaBP9eOqkTfgSArq69r+PhcKapTXr21Cbpysck2lHzzrJS6weACs4bbHI\nVyGgxgz1AgMBAAECggEAAwohRpdReGB6TceIV4nUFTS3L/OrU0vQtfj3atXKW+5q\nMjHkdGPRAjN0k7ZMfs2QAZUqOygP1sw/bS98bgycomH4dyFpBZnBGoNuyc1g7VHD\ncIBLUz4OKPUX9m3ekpPFMwCCalug9Zu/BCvJud45BvUEDk/NjH+DFgOuBNerm2Nx\n25MXBxNQa0Ute+u9/qWOoPrKUVVYfvb2PzspngV4RSOuP1ml8GIbWvO55ImHqMuq\nDvqz48pZOOnWbaKjT+xpx8TSxy047pvGfxem+MbYapEzESRWBgf+8BFNYVdEOVTC\nSmgu/iMUoLRNLYn5EbtYaAjxFtsj6vd7vHf+/xwe8QKBgQDl1iM/9swt/lN6293R\nGWbUNwh50NbhNCNOqsI8bsH7ovRtcclVjlc7W3EfmLKz/ED7qusLfHvk6aa7dysz\n7SSOT30sOsBYDf1/7O7DMhV46IX13DoINFStYlbnOACBNNuwLy/4PEhjIxk2Tngr\nOz1myQoVNhrfG1yCGkBbys0ADQKBgQDJ/Dp5oE8KONb/JsHh5sMlpeFERCqzi4Cl\nQe0Fgk7S+09whr9/v35ZALdDS8Sc9sgOqj0162TILgBhEd1cWGiICd79EqsnweWg\nwFvp4bRrhxObxzJC8vDK9nYBRYUznIDpP6bJUla9g4YtPTvX7Xpf+PNfuKaLXD7Q\n14RP4+2eiQKBgDZq7iut5ogZSHC1cB6bEhK6+QHGpanqq1Vr7tNaMgm/enoTT+U2\n74Z5Tx55DA67cjNkM4Sjs73uaHDIdW00/8vGHFAFlRcEMPpCAgIrcJQREe61dvQM\nV+Q5fXP/eXceKcncUlJHC6iVXdnS2Hb77rzQate82L3sf4m6Z3SUXtddAoGARdEO\ncU4NJA5jmkxORgRavd+pjsw1Klx0+ipggD/7eQfu/IlHFiQdyyvpLLS64DqZCiCk\nCcg0zNDBxsvDBRF2CFfJIRbb3GE0Oy1iV+RxVZ2aFIV1BRkuTCmGvofGNAHLuVQM\nFZiFbPpSXb7FuaxXWWcW0KZlwtP+zndAP9EcKGkCgYEA3ZJq9RM6mSj8DHncD4Gn\nEdsyZPB17n5vkno9YW72fEbhlqojz679UvvyUN18Zbv6MeT3clVOr8v7i7hzpFgA\nXE55Cx/XbgbNW4ZFSb6XPbp0cSbrSXFVtDTmCAgnEzOsOa3W7A+AebQNpCdebaHV\nt1wSrHWUL3C0KBGCir0bUFk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "lbstaff@lbreportid.iam.gserviceaccount.com",
+  "client_id": "118253236995427843289",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/lbstaff%40lbreportid.iam.gserviceaccount.com"
+}
