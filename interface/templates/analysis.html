@@ -97,7 +97,7 @@
 				<div class="cashbox-card cashbox-card-{{order.status}}">
 					<p style="float: right;">{{order.date}}</p>
 					<h5>{{order.price}} uzs - {{order.customer_name}}</h5>
-					<font size="2">id: {{order.id}}&emsp;</font><span class="fas fa-{{order.source}}"></span>
+					<font size="2">id: {{order.id}}&emsp;</font><span class="fas fa-{{order.source}}"></span>&emsp;<span>{{order.executor}}</span>
 				</div>
 			{% endfor %}
 			{% else %}

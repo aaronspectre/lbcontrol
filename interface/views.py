@@ -53,7 +53,7 @@ def dashboard(request, status):
 		return render(request, 'dashboard.html', {'orders': orders})
 
 	if status == 'left':
-		orders = Order.objects.filter(status = 'pending').exclude(
+		orders = Order.objects.filter(status = 'pending', executor = request.user).exclude(
 			date__year = date.year, date__month = date.month,
 			date__day = date.day
 		)

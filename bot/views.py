@@ -56,7 +56,7 @@ def findNearest(client_location):
 			'distance': int()
 		},
 		'chilonzor': {
-			'user': User.objects.get(id = 1),
+			'user': User.objects.get(username = 'chilonzor'),
 			'location': [41.2699296, 69.1693613],
 			'distance': int()
 		},

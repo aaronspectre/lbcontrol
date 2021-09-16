@@ -76,7 +76,8 @@
 										<small>id: {{order.id}}</small><br>
 										<small>{{order.customer_phone}} <h5 style="float: right;">{{order.price}} uzs</h5></small><br>
 										<small>{{order.customer_username}}</small><br>
-										<small>{{order.date.date}}</small><br><br>
+										<small>{{order.date}}</small><br>
+										<small>{{order.executor}}</small><br><br>
 										<p class="m-0">Order:</p>
 										<ul>
 											{% for item in order.order|parser %}
