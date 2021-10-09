@@ -89,12 +89,16 @@
 					<option value="Done">Done</option>
 					<option value="Reject">Reject</option>
 				</select>
-				<select class="form-control w-25"></select><br><br>
+				<select class="form-control w-25" id="analysisfiltersource" onchange="filter_source()">
+					<option value="All">All</option>
+					<option value="Robot">Robot</option>
+					<option value="Cash-Register">Cashbox</option>
+				</select><br><br>
 				<a href="{% url 'analysisReport' %}" class="btn btn-primary">Generate Report</a>
 			</div>
 			{% if orders %}
 			{% for order in orders %}
-				<div class="cashbox-card cashbox-card-{{order.status}}">
+				<div class="cashbox-card cashbox-card-{{order.status}} cashbox-card-{{order.source}}">
 					<p style="float: right;">{{order.date}}</p>
 					<h5>{{order.price}} uzs - {{order.customer_name}}</h5>
 					<font size="2">id: {{order.id}}&emsp;</font><span class="fas fa-{{order.source}}"></span>&emsp;<span>{{order.executor}}</span>

@@ -20,19 +20,33 @@ function filter_analyse(){
 	current_filter = 'cashbox-card-'+current_filter.toLowerCase()
 
 	for (var i = 1; i < cards.length; i++) {
-		cards[i].style.display = 'block'
-		disable = false
-		cards[i].classList.forEach(item => {
-			if (item == current_filter)
-				disable = false
-			else
-				disable = true
-		})
-
-		if (disable)
-			cards[i].style.display = "none"
-		else
+		if (cards[i].classList.contains(current_filter)) {
+			cards[i].style.display = 'block'
 			continue
+		}
+		cards[i].style.display = 'none'
+	}
+}
+
+
+
+function filter_source(){
+	current_filter = document.getElementById('analysisfiltersource').value
+	if (current_filter == 'All'){
+		for (var i = 1; i < cards.length; i++) {
+			cards[i].style.display = 'block'
+		}
+		return
+	}
+
+	current_filter = 'cashbox-card-'+current_filter.toLowerCase()
+
+	for (var i = 1; i < cards.length; i++) {
+		if (cards[i].classList.contains(current_filter)) {
+			cards[i].style.display = 'block'
+			continue
+		}
+		cards[i].style.display = 'none'
 	}
 }
 
