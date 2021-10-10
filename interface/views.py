@@ -118,7 +118,6 @@ def orderValidation(request, id, action):
 
 
 
-
 	if order.status == 'pending' and order.source == 'robot':
 		order.status = 'delivery'
 	elif order.status == 'pending' and order.source == 'cash-register':
@@ -127,7 +126,7 @@ def orderValidation(request, id, action):
 		order.status = 'done'
 
 	order.save()
-	return HttpResponseRedirect(reverse('dashboard', args = ('pending',)))
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 @login_required

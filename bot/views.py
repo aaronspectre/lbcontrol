@@ -20,7 +20,7 @@ def index(request):
 		order.customer_location = json.dumps(data['location'])
 		order.customer_username = data['username']
 		order.customer_id = int(data['id'])
-		order.price = len(order.order) * 12000
+		order.price = len(order.order) * 120
 		order.source = 'robot'
 		order.executor = findNearest(data['location'])
 		order.save()
@@ -29,6 +29,7 @@ def index(request):
 	except Exception as e:
 		print(e)
 		return HttpResponse(e)
+
 
 
 
