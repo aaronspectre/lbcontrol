@@ -81,7 +81,7 @@
 										<p class="m-0">Order:</p>
 										<ul>
 											{% for item in order.order|parser %}
-												<li>{{item}}</li>
+												<li><pre><font color="white">{{item}}</font></pre></li>
 											{% endfor %}
 										</ul>
 										{% if 'done' in order.status %}

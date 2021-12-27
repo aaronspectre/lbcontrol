@@ -33,13 +33,14 @@ def index(request):
 
 
 
+
 def calculateDistance(client_location, locations):
 	R = 6373.0
 
-	distance_lat = radians(client_location['latitude']) - radians(locations[0])
-	distance_lon = radians(client_location['longitude']) - radians(locations[1])
+	distance_lat = radians(client_location[0]) - radians(locations[0])
+	distance_lon = radians(client_location[1]) - radians(locations[1])
 
-	a = sin(distance_lat/2)**2+cos(radians(locations[0]))*cos(radians(client_location['latitude']))*sin(distance_lon/2)**2
+	a = sin(distance_lat/2)**2+cos(radians(locations[0]))*cos(radians(client_location[0]))*sin(distance_lon/2)**2
 	c = 2 * atan2(sqrt(a), sqrt(1 - a))
 
 	distance = R * c
